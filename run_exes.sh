@@ -11,6 +11,7 @@
 CFG="/home/rmonteiro/PhD/jctvc-hm/cfg/3DHencoder_intra_main.cfg"
 CFG_HEVC_ORIG="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_intra_main.cfg"
 CFG_HEVC_INTER_P="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main.cfg"
+CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_main.cfg"
 CFG_HEVC_ALL_INTRA="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main_ALL_INTRA.cfg"
 FO=0
 
@@ -603,30 +604,34 @@ fi
 for qp in 22 27 32 37
 do
 	cd $1/$2/$qp 
-	if [ $3 == 0 ]
+	if [ $3 == 0 ] # HEVC-SS based
 	then
        		./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
 	fi
-	if [ $3 == 1 ]
+	if [ $3 == 1 ] # HEVC Intra
 	then
 		./TAppEncoderStatic -c $CFG_HEVC_ORIG -i $SEQ -f 1 -fr 25 -fs $FO -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
 	fi
-	if [ $3 == 4 ]
+	if [ $3 == 5 ] # HEVC-SS based series
         then
                 ./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt
         fi
-	if [ $3 == 2 ]
+	if [ $3 == 2 ] # HEVC Inter P
         then
                 ./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
-	if [ $3 == 3 ]
+	if [ $3 == 3 ] # HEVC All Intra
         then
                 ./TAppEncoderStatic -c $CFG_HEVC_ALL_INTRA -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 -ip 1 -g 1 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+        fi
+	if [ $3 == 4 ] # HEVC Inter B
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_INTER_B -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 	cd ../../../
 done
 
-if [ $3 -ge 5 ]
+if [ $3 -ge 6 ]
 then
 	#cd $1/$2/$4
 	#./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $4 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
