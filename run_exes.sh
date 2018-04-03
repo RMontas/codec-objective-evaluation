@@ -14,6 +14,9 @@ CFG_HEVC_INTER_P="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main.cfg"
 #CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_main.cfg"
 CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.9/cfg/encoder_lowdelay_main.cfg"
 CFG_HEVC_ALL_INTRA="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main_ALL_INTRA.cfg"
+
+CFG_HEVC_REXT_INTER_B="/home/rmonteiro/PhD/hm-16.9/cfg/encoder_lowdelay_main_rext.cfg"
+
 FO=0
 
 if [ $2 == "PT150_FAST" ]
@@ -721,19 +724,24 @@ do
         then
                 ./TAppEncoderStatic -c $CFG_HEVC_ALL_INTRA -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 -ip 1 -g 1 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
-	if [ $3 == 4 ] # HEVC Inter B (!64 search range!)
+	if [ $3 == 4 ] # HEVC Inter B
         then
-                ./TAppEncoderStatic -c $CFG_HEVC_INTER_B -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_HEVC_INTER_B -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
+	if [ $3 == 5 ] # HEVC Inter B YUV444_10 (!search window 64!)
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_REXT_INTER_B -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+        fi
+
 	cd ../../../
 done
 
-if [ $3 -ge 6 ]
+if [ $3 -ge 7 ]
 then
 	#cd $1/$2/$4
 	#./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $4 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
 	#./TAppEncoderStatic -c $CFG_HEVC_ORIG -i $SEQ -f 1 -fr 25 -fs $FO -wdt $W -hgt $H -q $4 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
-	cd $1/$2/$5
-	./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $5 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+	cd $1/$2/$6
+	./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $6 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
 	cd ../../../
 fi
