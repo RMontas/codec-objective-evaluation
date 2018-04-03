@@ -11,7 +11,8 @@
 CFG="/home/rmonteiro/PhD/jctvc-hm/cfg/3DHencoder_intra_main.cfg"
 CFG_HEVC_ORIG="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_intra_main.cfg"
 CFG_HEVC_INTER_P="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main.cfg"
-CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_main.cfg"
+#CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_main.cfg"
+CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.9/cfg/encoder_lowdelay_main.cfg"
 CFG_HEVC_ALL_INTRA="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main_ALL_INTRA.cfg"
 FO=0
 
@@ -601,6 +602,102 @@ then
         SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I12_ISO_Chart_12__Decoded_13x13_YUV420_8bpp.yuv"
 fi
 
+if [ $2 == "4DLF_13x13_PVS_I01_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I01_Bikes__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I02_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I02_Danger_de_Mort__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I03_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I03_Flowers__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I04_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I04_Stone_Pillars_Outside__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I05_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I05_Vespa__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I06_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I06_Ankylosaurus_&_Diplodocus_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I07_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I07_Desktop__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I08_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I08_Magnets_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I09_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I09_Fountain_&_Vincent_2__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I10_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I10_Friends_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I11_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I11_Color_Chart_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I12_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I12_ISO_Chart_12__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
 for qp in 22 27 32 37
 do
 	cd $1/$2/$qp 
@@ -618,15 +715,15 @@ do
         fi
 	if [ $3 == 2 ] # HEVC Inter P
         then
-                ./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 	if [ $3 == 3 ] # HEVC All Intra
         then
-                ./TAppEncoderStatic -c $CFG_HEVC_ALL_INTRA -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 -ip 1 -g 1 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_HEVC_ALL_INTRA -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 -ip 1 -g 1 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
-	if [ $3 == 4 ] # HEVC Inter B
+	if [ $3 == 4 ] # HEVC Inter B (!64 search range!)
         then
-                ./TAppEncoderStatic -c $CFG_HEVC_INTER_B -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_HEVC_INTER_B -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 	cd ../../../
 done
