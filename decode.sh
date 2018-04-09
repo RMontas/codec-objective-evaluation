@@ -127,7 +127,7 @@ for qp in 22 27 32 37
 do
         #cp $2 $1/$i/$qp
         cd $1/$2/$qp
-        ./TAppDecoderStatic -b bitstream -o rec_dec.yuv
+        ./TAppDecoderStatic -b str.bin -o rec_dec.yuv
         echo "${2} ${qp}" >> ../../diff_dec_enc.txt
         diff rec_dec.yuv rec.yuv >> ../../diff_dec_enc.txt
         cd ../../../

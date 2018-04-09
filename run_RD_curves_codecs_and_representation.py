@@ -42,7 +42,32 @@ def get_seq_data(SEQ):
                 return 7728, 5368, 15, 15, "Color chart 1", 0
         elif SEQ == "12ISO":
                 return 7728, 5368, 15, 15, "ISO Chart 12", 0
-
+            
+        elif SEQ == "1BIKES_YUV444_10":
+                return 7728, 5368, 15, 15, "Bikes", 0
+        elif SEQ == "2DANGER_YUV444_10":
+                return 7728, 5368, 15, 15, "Danger de Mort", 0
+        elif SEQ == "3FLOWERS_YUV444_10":
+                return 7728, 5368, 15, 15, "Flowers", 0
+        elif SEQ == "4STONE_YUV444_10":
+                return 7728, 5368, 15, 15, "Stone Pillars Outside", 0
+        elif SEQ == "5VESPA_YUV444_10":
+                return 7728, 5368, 15, 15, "Vespa", 0
+        elif SEQ == "6ANKY_YUV444_10":
+                return 7728, 5368, 15, 15, "Ankylosaurus & Diplodocus 1", 0
+        elif SEQ == "7DESKTOP_YUV444_10":
+                return 7728, 5368, 15, 15, "Desktop", 0
+        elif SEQ == "8MAGNETS_YUV444_10":
+                return 7728, 5368, 15, 15, "Magnets 1", 0
+        elif SEQ == "9FOUNTAIN_YUV444_10":
+                return 7728, 5368, 15, 15, "Fountain & Vincent 2", 0
+        elif SEQ == "10FRIENDS_YUV444_10":
+                return 7728, 5368, 15, 15, "Friends 1", 0
+        elif SEQ == "11COLOR_YUV444_10":
+                return 7728, 5368, 15, 15, "Color chart 1", 0
+        elif SEQ == "12ISO_YUV444_10":
+                return 7728, 5368, 15, 15, "ISO Chart 12", 0
+            
         elif SEQ == "PT150_FAST":
                 return 176, 144, 28, 28, "QCIF Plane and Toy (frame 150)", 0
 
@@ -145,6 +170,106 @@ def get_seq_data(SEQ):
                 return 632, 440, 13, 13, "4DLF_13x13_PVS_I11_YUV420_8", 0
         elif SEQ == "4DLF_13x13_PVS_I12_YUV420_8":
                 return 632, 440, 13, 13, "4DLF_13x13_PVS_I12_YUV420_8", 0
+            
+        elif SEQ == "4DLF_I01_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I01_YUV444_10", 0
+        elif SEQ == "4DLF_I02_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I02_YUV444_10", 0
+        elif SEQ == "4DLF_I03_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I03_YUV444_10", 0
+        elif SEQ == "4DLF_I04_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I04_YUV444_10", 0
+        elif SEQ == "4DLF_I05_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I05_YUV444_10", 0
+        elif SEQ == "4DLF_I06_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I06_YUV444_10", 0
+        elif SEQ == "4DLF_I07_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I07_YUV444_10", 0
+        elif SEQ == "4DLF_I08_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I08_YUV444_10", 0
+        elif SEQ == "4DLF_I09_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I09_YUV444_10", 0
+        elif SEQ == "4DLF_I10_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I10_YUV444_10", 0
+        elif SEQ == "4DLF_I11_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I11_YUV444_10", 0
+        elif SEQ == "4DLF_I12_YUV444_10":
+                return 9376, 6512, 15, 15, "4DLF_I12_YUV444_10", 0
+
+	elif SEQ == "4DLF_PVS_I01_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I01_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I02_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I02_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I03_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I03_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I04_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I04_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I05_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I05_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I06_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I06_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I07_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I07_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I08_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I08_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I09_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I09_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I10_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I10_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I11_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I11_YUV444_10", 0
+        elif SEQ == "4DLF_PVS_I12_YUV444_10":
+                return 632, 440, 15, 15, "4DLF_PVS_I12_YUV444_10", 0
+
+	elif SEQ == "4DLF_13x13_I01_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I01_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I02_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I02_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I03_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I03_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I04_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I04_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I05_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I05_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I06_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I06_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I07_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I07_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I08_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I08_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I09_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I09_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I10_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I10_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I11_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I11_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_I12_YUV444_10":
+                return 8128, 5648, 13, 13, "4DLF_13x13_I12_YUV444_10", 0
+
+        elif SEQ == "4DLF_13x13_PVS_I01_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I01_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I02_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I02_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I03_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I03_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I04_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I04_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I05_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I05_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I06_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I06_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I07_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I07_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I08_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I08_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I09_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I09_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I10_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I10_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I11_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I11_YUV444_10", 0
+        elif SEQ == "4DLF_13x13_PVS_I12_YUV444_10":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_I12_YUV444_10", 0
 
 parser = argparse.ArgumentParser(description="Script for RD Curves")
 parser.add_argument("SEQ_MY", type=str)
