@@ -1224,13 +1224,13 @@ then
 fi
 
 	#grep POC $2/$1/$qp/out_${1}_${qp}.txt | awk '{print $15}' >> $2/$1/${2}_psnr.txt # psnr
-	if [ ${representation_type} == 2 ]; then
+	#if [ ${representation_type} == 2 ]; then
 		#bytes=$(grep Bytes ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{print $5}')
 		grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$12} END {print sum}' >> ${dir}/$2/$1/${2}_bits.txt # bits		
 		#echo $bytes
 		#echo "$bytes * 8" | bc -l >> ${dir}/$2/$1/${2}_bits.txt # bits
 		
-	fi
+	#fi
 	
 done
 
