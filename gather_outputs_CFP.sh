@@ -1208,29 +1208,36 @@ fi
 
 dir=$(pwd)
 cd /home/rmonteiro/PhD/Sequences/EPFL
+if [ $# == 4 ]
+then
 for qp in 22 27 32 37
 do
-
 if [ $4 == 1 ]
 then
 	echo "calcMetrics_YUV420_8bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
 	/usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV420_8bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
 fi
-
 if [ $4 == 2 ]
 then
 	echo "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
         /usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
 fi
-
-	#grep POC $2/$1/$qp/out_${1}_${qp}.txt | awk '{print $15}' >> $2/$1/${2}_psnr.txt # psnr
-	#if [ ${representation_type} == 2 ]; then
-		#bytes=$(grep Bytes ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{print $5}')
-		grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$12} END {print sum}' >> ${dir}/$2/$1/${2}_bits.txt # bits		
-		#echo $bytes
-		#echo "$bytes * 8" | bc -l >> ${dir}/$2/$1/${2}_bits.txt # bits
-		
-	#fi
-	
+grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$12} END {print sum}' >> ${dir}/$2/$1/${2}_bits.txt # bits		
 done
+fi
 
+if [ $# == 5 ] # Specific QP
+then
+qp=$5
+if [ $4 == 1 ]
+then
+        echo "calcMetrics_YUV420_8bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
+        /usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV420_8bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
+fi
+if [ $4 == 2 ]
+then
+        echo "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
+        /usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
+fi
+grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$12} END {print sum}' >> ${dir}/$2/$1/${2}_bits.txt # bits
+fi

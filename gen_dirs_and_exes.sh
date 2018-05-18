@@ -257,4 +257,12 @@ done
 done
 fi
 
+if [ $2 == "SPECIFIC" ]
+then
+
+mkdir $1/$3
+mkdir $1/$3/$4
+	cp $1/$3/22/TAppEncoderStatic $1/$3/$4
+        cp $1/$3/22/TAppDecoderStatic $1/$3/$4
+fi
 

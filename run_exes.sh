@@ -933,12 +933,49 @@ do
 	cd ../../../
 done
 
-if [ $3 -ge 100 ]
+# specific QP (higher or equal to 10)
+# inputs in this case:
+# 1. CODEC
+# 2. SEQ
+# 3. QP
+# 4. CFG
+# 5. number of frames (if video)
+if [ $3 -ge 10 ]
 then
-	#cd $1/$2/$4
-	#./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $4 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
-	#./TAppEncoderStatic -c $CFG_HEVC_ORIG -i $SEQ -f 1 -fr 25 -fs $FO -wdt $W -hgt $H -q $4 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
-	cd $1/$2/$6
-	./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -f 1 -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $6 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
-	cd ../../../
+	cd $1/$2/$3
+        if [ $4 == 0 ] # HEVC-SS based (!search window 64!)
+        then
+                ./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $3 -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
+        fi
+        if [ $4 == 2 ] # HEVC Intra (!series!)
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_ORIG -i $SEQ -f 1 -fr 25 -fs $FO -wdt $W -hgt $H -q $3 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt
+        fi
+        if [ $4 == 1 ] # HEVC-SS based series (!search window 64!)
+        then
+                ./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $3 -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt
+        fi
+        if [ $4 == 3 ] # HEVC Inter P
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_INTER_P -i $SEQ -fr 25 -fs $FO -f $5 -wdt $W -hgt $H -q $3 -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
+        fi
+        if [ $4 == 4 ] # HEVC All Intra
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_ALL_INTRA -i $SEQ -fr 25 -fs $FO -f $5 -wdt $W -hgt $H -q $3 -sr 128 -ip 1 -g 1 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
+        fi
+        if [ $4 == 5 ] # HEVC Inter B (!search window 64!)
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_INTER_B -i $SEQ -fr 25 -fs $FO -f $5 -wdt $W -hgt $H -q $3 -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
+        fi
+        if [ $4 == 6 ] # HEVC Inter B YUV444_10 (!search window 64!)
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_REXT_INTER_B -i $SEQ -fr 25 -fs $FO -f $5 -wdt $W -hgt $H -q $3 -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt &
+        fi
+        if [ $4 == 7 ] # HEVC Intra YUV444_10 (!series!)
+        then
+                ./TAppEncoderStatic -c $CFG_HEVC_REXT_INTER_B -i $SEQ -fr 25 -fs $FO -f 1 -wdt $W -hgt $H -q $3 -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${3}.txt
+        fi
+
+        cd ../../../
+
 fi
