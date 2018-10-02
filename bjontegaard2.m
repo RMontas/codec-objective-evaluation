@@ -38,6 +38,11 @@ function avg_diff = bjontegaard2(R1,PSNR1,R2,PSNR2,mode)
 %   [3] VCEG-M34. http://wftp3.itu.int/av-arch/video-site/0104_Aus/VCEG-M34.xls
 %
 % convert rates in logarithmic units
+R1 = sort(R1);
+R2 = sort(R2);
+PSNR1 = sort(PSNR1);
+PSNR2 = sort(PSNR2);
+
 lR1 = log(R1);
 lR2 = log(R2);
 

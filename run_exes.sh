@@ -894,12 +894,109 @@ then
         SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I12_ISO_Chart_12__Decoded_13x13_YUV444_10bpp.yuv"
 fi
 
-for qp in 22 27 32 37
+if [ $2 == "4DLF_13x13_PVS_SCL_I01_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I01_Bikes__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I02_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I02_Danger_de_Mort__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I03_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I03_Flowers__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I04_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I04_Stone_Pillars_Outside__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I05_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I05_Vespa__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I06_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I06_Ankylosaurus_&_Diplodocus_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I07_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I07_Desktop__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I08_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I08_Magnets_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I09_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I09_Fountain_&_Vincent_2__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I10_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I10_Friends_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I11_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I11_Color_Chart_1__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_SCL_I12_YUV444_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I12_ISO_Chart_12__Decoded_13x13_YUV444_10bpp.yuv"
+fi
+
+for qp in 17 22 27 32 37 42
 do
+	if [ -d $1/$2/$qp ]; then
 	cd $1/$2/$qp 
-	if [ $3 == 0 ] # HEVC-SS based (!search window 64!)
+	if [ $3 == 0 ] # HEVC-SS based (!search window 128!)
 	then
-       		./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $qp -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+       		./TAppEncoderStatic -c $CFG -i $SEQ -f 1 -mi 1 -mir $MIR -fr 25 -fs $FO -wdt $W -hgt $H -q $qp -sr 128 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
 	fi
 	if [ $3 == 2 ] # HEVC Intra (!series!)
 	then
@@ -931,6 +1028,7 @@ do
         fi
 
 	cd ../../../
+	fi
 done
 
 # specific QP (higher or equal to 10)

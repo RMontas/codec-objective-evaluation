@@ -332,10 +332,21 @@ for line in fMY_psnr:
         psnr_my[num_QP_MY] = double(line)
         num_QP_MY = num_QP_MY + 1
 
+bit_ref0.sort(reverse=True)
+bit_my.sort(reverse=True)
+psnr_ref0.sort(reverse=True)
+psnr_my.sort(reverse=True)
+
+
 fREF0_bits.close()
 fREF0_psnr.close()
 fMY_bits.close()
 fMY_psnr.close()
+
+print bit_ref0
+print bit_my
+print psnr_ref0
+print psnr_my
 
 print num_QP_REF0
 print num_QP_MY

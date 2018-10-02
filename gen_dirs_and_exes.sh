@@ -28,6 +28,7 @@ declare -a epfl_4dlf_13x13_yuv420_8=("4DLF_13x13_I01_YUV420_8" "4DLF_13x13_I02_Y
 declare -a epfl_4dlf_13x13_yuv444_10=("4DLF_13x13_I01_YUV444_10" "4DLF_13x13_I02_YUV444_10" "4DLF_13x13_I03_YUV444_10" "4DLF_13x13_I04_YUV444_10" "4DLF_13x13_I05_YUV444_10" "4DLF_13x13_I06_YUV444_10" "4DLF_13x13_I07_YUV444_10" "4DLF_13x13_I08_YUV444_10" "4DLF_13x13_I09_YUV444_10" "4DLF_13x13_I10_YUV444_10" "4DLF_13x13_I11_YUV444_10" "4DLF_13x13_I12_YUV444_10")
 declare -a epfl_4dlf_13x13_pvs_yuv420_8=("4DLF_13x13_PVS_I01_YUV420_8" "4DLF_13x13_PVS_I02_YUV420_8" "4DLF_13x13_PVS_I03_YUV420_8" "4DLF_13x13_PVS_I04_YUV420_8" "4DLF_13x13_PVS_I05_YUV420_8" "4DLF_13x13_PVS_I06_YUV420_8" "4DLF_13x13_PVS_I07_YUV420_8" "4DLF_13x13_PVS_I08_YUV420_8" "4DLF_13x13_PVS_I09_YUV420_8" "4DLF_13x13_PVS_I10_YUV420_8" "4DLF_13x13_PVS_I11_YUV420_8" "4DLF_13x13_PVS_I12_YUV420_8")
 declare -a epfl_4dlf_13x13_pvs_yuv444_10=("4DLF_13x13_PVS_I01_YUV444_10" "4DLF_13x13_PVS_I02_YUV444_10" "4DLF_13x13_PVS_I03_YUV444_10" "4DLF_13x13_PVS_I04_YUV444_10" "4DLF_13x13_PVS_I05_YUV444_10" "4DLF_13x13_PVS_I06_YUV444_10" "4DLF_13x13_PVS_I07_YUV444_10" "4DLF_13x13_PVS_I08_YUV444_10" "4DLF_13x13_PVS_I09_YUV444_10" "4DLF_13x13_PVS_I10_YUV444_10" "4DLF_13x13_PVS_I11_YUV444_10" "4DLF_13x13_PVS_I12_YUV444_10")
+declare -a epfl_4dlf_13x13_pvs_scl_yuv444_10=("4DLF_13x13_PVS_SCL_I01_YUV444_10" "4DLF_13x13_PVS_SCL_I02_YUV444_10" "4DLF_13x13_PVS_SCL_I03_YUV444_10" "4DLF_13x13_PVS_SCL_I04_YUV444_10" "4DLF_13x13_PVS_SCL_I05_YUV444_10" "4DLF_13x13_PVS_SCL_I06_YUV444_10" "4DLF_13x13_PVS_SCL_I07_YUV444_10" "4DLF_13x13_PVS_SCL_I08_YUV444_10" "4DLF_13x13_PVS_SCL_I09_YUV444_10" "4DLF_13x13_PVS_SCL_I10_YUV444_10" "4DLF_13x13_PVS_SCL_I11_YUV444_10" "4DLF_13x13_PVS_SCL_I12_YUV444_10")
 
 mkdir $1 
 
@@ -67,7 +68,7 @@ then
 for i in "${epfl[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 22 27 32 37 42
 do
         mkdir $1/$i/$qp
 	cp $3/TAppEncoderStatic $1/$i/$qp
@@ -82,7 +83,7 @@ then
 for i in "${epfl_yuv444_10[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 22 27 32 37 42
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -97,7 +98,7 @@ then
 for i in "${epfl_4dlf_yuv420_8[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 22 27 32 37 42
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -112,7 +113,7 @@ then
 for i in "${epfl_4dlf_yuv444_10[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 22 27 32 37 42
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -127,7 +128,7 @@ then
 for i in "${epfl_4dlf_pvs_yuv420_8[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 17 22 27 32 37
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -142,7 +143,7 @@ then
 for i in "${epfl_4dlf_13x13_yuv420_8[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 22 27 32 37 42
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -157,7 +158,7 @@ then
 for i in "${epfl_4dlf_13x13_yuv444_10[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 22 27 32 37 42
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -172,7 +173,7 @@ then
 for i in "${epfl_4dlf_13x13_pvs_yuv420_8[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 17 22 27 32 37
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp
@@ -187,7 +188,22 @@ then
 for i in "${epfl_4dlf_13x13_pvs_yuv444_10[@]}"
 do
 mkdir $1/$i
-for qp in 22 27 32 37
+for qp in 17 22 27 32 37
+do
+        mkdir $1/$i/$qp
+        cp $3/TAppEncoderStatic $1/$i/$qp
+        cp $3/TAppDecoderStatic $1/$i/$qp
+done
+done
+fi
+
+if [ $2 == "EPFL_4DLF_13x13_PVS_SCL_YUV444_10" ]
+then
+
+for i in "${epfl_4dlf_13x13_pvs_scl_yuv444_10[@]}"
+do
+mkdir $1/$i
+for qp in 17 22 27 32 37
 do
         mkdir $1/$i/$qp
         cp $3/TAppEncoderStatic $1/$i/$qp

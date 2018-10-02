@@ -1,3 +1,5 @@
+%% bitrate_flag 0 -> all qps
+
 function [] = run_bjm(R1,PSNR1,R2,PSNR2,output_name, bitrate_flag) % 1:REF 2:COMP
 
 fid1 = fopen(R1,'r');
@@ -19,6 +21,11 @@ elseif bitrate_flag == 3
 dsnr = bjontegaard2((v_R1{1}(end-3:end)),(v_PSNR1{1}(end-3:end)),(v_R2{1}(end-3:end)),(v_PSNR2{1}(end-3:end)),'dsnr');
 rate = bjontegaard2((v_R1{1}(end-3:end)),(v_PSNR1{1}(end-3:end)),(v_R2{1}(end-3:end)),(v_PSNR2{1}(end-3:end)),'rate');
 else
+disp(v_R1{1}(:))
+disp(v_R2{1}(:))
+disp(v_PSNR1{1}(:))
+disp(v_PSNR2{1}(:))
+
 dsnr = bjontegaard2((v_R1{1}(1:end)),(v_PSNR1{1}(1:end)),(v_R2{1}(1:end)),(v_PSNR2{1}(1:end)),'dsnr');
 rate = bjontegaard2((v_R1{1}(1:end)),(v_PSNR1{1}(1:end)),(v_R2{1}(1:end)),(v_PSNR2{1}(1:end)),'rate');
 end

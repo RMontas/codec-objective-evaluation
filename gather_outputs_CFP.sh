@@ -1210,8 +1210,9 @@ dir=$(pwd)
 cd /home/rmonteiro/PhD/Sequences/EPFL
 if [ $# == 4 ]
 then
-for qp in 22 27 32 37
+for qp in 17 22 27 32 37 42
 do
+if [ -d ${dir}/$2/$1/$qp ]; then
 if [ $4 == 1 ]
 then
 	echo "calcMetrics_YUV420_8bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
@@ -1223,6 +1224,7 @@ then
         /usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
 fi
 grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$12} END {print sum}' >> ${dir}/$2/$1/${2}_bits.txt # bits		
+fi
 done
 fi
 
