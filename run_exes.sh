@@ -16,6 +16,7 @@ CFG_HEVC_INTER_B="/home/rmonteiro/PhD/hm-16.9/cfg/encoder_lowdelay_main.cfg"
 CFG_HEVC_ALL_INTRA="/home/rmonteiro/PhD/hm-16.5/cfg/encoder_lowdelay_P_main_ALL_INTRA.cfg"
 
 CFG_HEVC_REXT_INTER_B="/home/rmonteiro/PhD/hm-16.9/cfg/encoder_lowdelay_main_rext.cfg"
+CFG_SPIRAL_SCL="/home/rmonteiro/PhD/hm-16.9-LF-PVS/cfg/spiral_scalable_encoder_lowdelay_main_rext.cfg"
 
 FO=0
 
@@ -1025,6 +1026,11 @@ do
 	if [ $3 == 7 ] # HEVC Intra YUV444_10 (!series!)
         then
                 ./TAppEncoderStatic -c $CFG_HEVC_REXT_INTER_B -i $SEQ -fr 25 -fs $FO -f 1 -wdt $W -hgt $H -q $qp -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt
+        fi
+	
+	if [ $3 == 9 ] # HEVC Inter B YUV444_10 (!search window 64!)
+        then
+                ./TAppEncoderStatic -c $CFG_SPIRAL_SCL -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 
 	cd ../../../
