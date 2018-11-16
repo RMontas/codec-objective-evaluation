@@ -1085,6 +1085,126 @@ then
         representation_type=3
 fi
 
+if [[ $1 == "4DLF_13x13_PVS_SCL_I01_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I01_Bikes__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I02_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I02_Danger_de_Mort__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I03_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I03_Flowers__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I04_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I04_Stone_Pillars_Outside__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I05_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I05_Vespa__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I06_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I06_Ankylosaurus_&_Diplodocus_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I07_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I07_Desktop__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I08_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I08_Magnets_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I09_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I09_Fountain_&_Vincent_2__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I10_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I10_Friends_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I11_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I11_Color_Chart_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_SCL_I12_YUV420_8" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I12_ISO_Chart_12__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=3
+fi
+
 if [[ $1 == "1BIKES" ]]
 then
         W=7728
