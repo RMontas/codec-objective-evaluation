@@ -293,8 +293,34 @@ def get_seq_data(SEQ):
                 return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I10_YUV444_10", 0
         elif SEQ == "4DLF_13x13_PVS_SCL_I11_YUV444_10":
                 return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I11_YUV444_10", 0
-        elif SEQ == "4DLF_13x13_PVS_SCL_I12_YUV444_10":
+        elif SEQ == "4DLF_13x13_PVS_SCL_I12_YUV444_10":        
                 return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I12_YUV444_10", 0
+            
+        elif SEQ == "4DLF_13x13_PVS_SCL_I01_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I01_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I02_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I02_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I03_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I03_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I04_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I04_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I05_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I05_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I06_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I06_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I07_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I07_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I08_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I08_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I09_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I09_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I10_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I10_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I11_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I11_YUV420_8", 0
+        elif SEQ == "4DLF_13x13_PVS_SCL_I12_YUV420_8":
+                return 632, 440, 13, 13, "4DLF_13x13_PVS_SCL_I12_YUV420_8", 0
+        
 
 parser = argparse.ArgumentParser(description="Script for RD Curves")
 parser.add_argument("SEQ_MY", type=str)
