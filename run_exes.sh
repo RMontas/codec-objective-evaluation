@@ -1128,22 +1128,22 @@ do
         fi
 	
 	
-	if [ $3 == 8 ] # HEVC Inter B YUV444_10 (!search window 64!) NON SCALABLE SPIRAL
+	if [ $3 == 8 ] # HEVC Inter B YUV444_10 (!search window 64!) NON SCALABLE SPIRAL (!SAO OFF!)
         then
-                ./TAppEncoderStatic -c $CFG_SPIRAL -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_SPIRAL -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --SAO=0 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
-	if [ $3 == 9 ] # HEVC Inter B YUV444_10 (!search window 64!) SCALABLE SPIRAL
+	if [ $3 == 9 ] # HEVC Inter B YUV444_10 (!search window 64!) SCALABLE SPIRAL (!SAO OFF!)
         then
-                ./TAppEncoderStatic -c $CFG_SPIRAL_SCL -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_SPIRAL_SCL -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --SAO=0 --InputChromaFormat=444 --ChromaFormatIDC=444 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 
-	if [ $3 == 88 ] # HEVC Inter B YUV420_8 (!search window 64!) NON SCALABLE SPIRAL
+	if [ $3 == 88 ] # HEVC Inter B YUV420_8 (!search window 64!) NON SCALABLE SPIRAL (!SAO OFF!)
         then
-                ./TAppEncoderStatic -c $CFG_SPIRAL_YUV420_8 -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_SPIRAL_YUV420_8 -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --SAO=0 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
-        if [ $3 == 99 ] # HEVC Inter B YUV420_8 (!search window 64!) SCALABLE SPIRAL
+	if [ $3 == 99 ] # HEVC Inter B YUV420_8 (!search window 64!) SCALABLE SPIRAL (!SAO OFF!)
         then
-                ./TAppEncoderStatic -c $CFG_SPIRAL_SCL_YUV420_8 -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+                ./TAppEncoderStatic -c $CFG_SPIRAL_SCL_YUV420_8 -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --SAO=0 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 
 
