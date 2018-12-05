@@ -21,6 +21,8 @@ CFG_SPIRAL_SCL="/home/rmonteiro/PhD/hm-16.9-LF-PVS/cfg/spiral_scalable_encoder_l
 CFG_SPIRAL_YUV420_8="/home/rmonteiro/PhD/hm-16.9-LF-PVS/cfg/spiral_nonscalable_encoder_lowdelay_main.cfg"
 CFG_SPIRAL_SCL_YUV420_8="/home/rmonteiro/PhD/hm-16.9-LF-PVS/cfg/spiral_scalable_encoder_lowdelay_main.cfg"
 
+CFG_SPIRAL_YUV422_10="/home/rmonteiro/PhD/hm-16.9-LF-PVS/cfg/spiral_nonscalable_encoder_lowdelay_main_rext.cfg" 
+
 FO=0
 
 if [ $2 == "PT150_FAST" ]
@@ -1090,6 +1092,102 @@ then
         SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS_Scalable/I12_ISO_Chart_12__Decoded_13x13_YUV420_8bpp.yuv"
 fi
 
+if [ $2 == "4DLF_13x13_PVS_I01_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I01_Bikes__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I02_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I02_Danger_de_Mort__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I03_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I03_Flowers__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I04_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I04_Stone_Pillars_Outside__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I05_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I05_Vespa__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I06_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I06_Ankylosaurus_&_Diplodocus_1__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I07_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I07_Desktop__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I08_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I08_Magnets_1__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I09_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I09_Fountain_&_Vincent_2__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I10_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I10_Friends_1__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I11_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I11_Color_Chart_1__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
+if [ $2 == "4DLF_13x13_PVS_I12_YUV422_10" ]
+then
+        W=632
+        H=440
+        MIR=13
+        SEQ="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_PVS/I12_ISO_Chart_12__Decoded_13x13_YUV422_10bpp.yuv"
+fi
+
 for qp in 17 22 27 32 37 42
 do
 	if [ -d $1/$2/$qp ]; then
@@ -1146,7 +1244,10 @@ do
                 ./TAppEncoderStatic -c $CFG_SPIRAL_SCL_YUV420_8 -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --SAO=0 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
         fi
 
-
+	if [ $3 == 888 ] # HEVC Intra YUV422_10 (!search window 64!) NON SCALABLE SPIRAL (!SAO OFF!)
+        then
+                ./TAppEncoderStatic -c $CFG_SPIRAL_YUV422_10 -i $SEQ -fr 25 -fs $FO -f $4 -wdt $W -hgt $H -q $qp -sr 64 --InputChromaFormat=422 --ChromaFormatIDC=422 --InputBitDepth=10 --OutputBitDepth=10 --ConformanceMode 1 --ConformanceWindowMode 1 &> out_${2}_${qp}.txt &
+        fi
 
 	cd ../../../
 	fi

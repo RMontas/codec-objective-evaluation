@@ -1205,6 +1205,126 @@ then
         representation_type=3
 fi
 
+if [[ $1 == "4DLF_13x13_PVS_I01_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I01_Bikes__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I02_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I02_Danger_de_Mort__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I03_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I03_Flowers__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I04_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I04_Stone_Pillars_Outside__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I05_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I05_Vespa__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I06_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I06_Ankylosaurus_&_Diplodocus_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I07_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I07_Desktop__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I08_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I08_Magnets_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I09_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I09_Fountain_&_Vincent_2__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I10_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I10_Friends_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I11_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I11_Color_Chart_1__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
+if [[ $1 == "4DLF_13x13_PVS_I12_YUV422_10" ]]
+then
+        W=632
+        H=440
+        MIR=${3}
+        REF="/home/rmonteiro/PhD/Sequences/EPFL/4DLF_MI/I12_ISO_Chart_12__Decoded_13x13_YUV444_10bpp.yuv"
+        metadata=""
+        representation_type=2
+fi
+
 if [[ $1 == "1BIKES" ]]
 then
         W=7728
@@ -1450,7 +1570,7 @@ dir=$(pwd)
 cd /home/rmonteiro/PhD/Sequences/EPFL
 if [ $# == 4 ]
 then
-for qp in 17 22 27 32 37 42
+for qp in 12 17 22 27 32 37 42
 do
 if [ -d ${dir}/$2/$1/$qp ]; then
 if [ $4 == 1 ]
@@ -1463,14 +1583,20 @@ then
 	echo "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
         /usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV444_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
 fi
-REDUCTION=0
-#echo $(echo $2 | grep OPTIMIZED  | wc -l)
-if [ $(echo $2 | grep OPTIMIZED  | wc -l) == 1 ]; then
-	REDUCTION=722616
+if [ $4 == 3 ]
+then
+	echo "calcMetrics_YUV422_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_avg_psnr_views.txt'); quit;"
+        /usr/local/MATLAB/R2017a/bin/matlab -nodesktop -nosplash -r "calcMetrics_YUV422_10bpp('${REF}','${dir}/$2/$1/$qp/rec.yuv',${representation_type},$H,$W,${MIR},'${metadata}','${dir}/$2/$1/${2}_'); quit;"
 fi
+
+#REDUCTION=0
+#echo $(echo $2 | grep OPTIMIZED  | wc -l)
+#if [ $(echo $2 | grep OPTIMIZED  | wc -l) == 1 ]; then
+#	REDUCTION=$(grep OPTIMIZE_REF_SAIS_SPS_BIT_REDUCTION ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$3} END {print sum}')
+#fi
 BITS=$(grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | awk '{sum+=$12} END {print sum}') 
-echo $BITS
-BITS=$((BITS - REDUCTION))
+#echo $BITS
+#BITS=$((BITS - REDUCTION))
 echo $BITS >> ${dir}/$2/$1/${2}_bits.txt # bits	
 echo $BITS
 grep bits ${dir}/$2/$1/$qp/out_${1}_${qp}.txt | wc -l
